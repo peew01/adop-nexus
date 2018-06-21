@@ -4,6 +4,9 @@ FROM sonatype/nexus3:3.7.1
 ENV LDAP_ENABLED=true \
     NEXUS_CONTEXT=nexus \
     DEBUG_LOGGING=false \
+    DOCKER_REGISTRY_NAME=docker-hosted \
+    DOCKER_REGISTRY_HTTP_PORT=18079 \
+    DOCKER_REGISTRY_HTTPS_PORT=18080 \
     LDAP_SEARCH_BASE="" \
     LDAP_NAME=nexusldap \
     LDAP_URL="" \

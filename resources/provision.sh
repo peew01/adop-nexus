@@ -90,6 +90,12 @@ if [ "${LDAP_ENABLED}" = "true" ]
   fi
 fi
 
+# Docker Registry parameters
+DOCKER_REGISTRY_CONFIG="{\"name\":\"$DOCKER_REGISTRY_NAME\",\"http_port\":\"$DOCKER_REGISTRY_HTTP_PORT\",\"https_port\":\"$DOCKER_REGISTRY_HTTPS_PORT\"}"
+
+# Setup Docker Registry
+addAndRunScript setup_docker_registry resources/conf/setup_docker_registry.groovy "\${DOCKER_REGISTRY_CONFIG}"
+
 # Include Legacy URL 
 File="${NEXUS_DATA}/etc/nexus.properties"
 Property="org.sonatype.nexus.repository.httpbridge.internal.HttpBridgeModule.legacy=true"
